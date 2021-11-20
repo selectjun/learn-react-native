@@ -5,7 +5,7 @@ import Box from './components/Box';
 const App = () => {
   return (
     <SafeAreaView>
-      <Box />
+      <Box rounded={true} />
     </SafeAreaView>
   );
 };
