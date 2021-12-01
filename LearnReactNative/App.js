@@ -1,20 +1,24 @@
 import React, {useState} from 'react';
-import {Button, SafeAreaView} from 'react-native';
-import Box from './components/Box';
+import {SafeAreaView, StyleSheet} from 'react-native';
+import Counter from './components/Counter';
 
 const App = () => {
-  const [visible, setVisible] = useState(true);
+  const [count, setCount] = useState(0);
 
-  const onPress = () => {
-    setVisible(!visible);
-  };
+  const onIcrease = () => setCount(count + 1);
+  const onDecrease = () => setCount(count - 1);
 
   return (
-    <SafeAreaView>
-      <Button title="토글" onPress={onPress} />
-      {visible && <Box rounded={true} size="large" color="blue" />}
+    <SafeAreaView style={styles.full}>
+      <Counter count={count} onIcrease={onIcrease} onDecrease={onDecrease} />
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  full: {
+    flex: 1,
+  },
+});
 
 export default App;
